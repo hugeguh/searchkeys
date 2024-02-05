@@ -18,3 +18,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build
       run: cargo build --verbose
+    - name: Upload Executable
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-executable
+        path: target/release/searchkeys
