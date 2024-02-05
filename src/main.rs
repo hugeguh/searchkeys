@@ -1,8 +1,8 @@
 use reqwest;
 use scraper::{Html, Selector};
 use rand::Rng;
-// use clipboard::ClipboardProvider;
-// use clipboard::ClipboardContext;
+use clipboard::ClipboardProvider;
+use clipboard::ClipboardContext;
 use dialoguer::Select;
 
 async fn fetch_html(url: &str) -> Result<String, reqwest::Error> {
