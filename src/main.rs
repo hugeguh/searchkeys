@@ -31,7 +31,7 @@ fn gen_word_lenth(start: usize, end: usize) -> usize {
     rng.gen_range(start..end)
 }
 
-fn copy_words(word_list: &mut Vec<&str>, ctx: ClipboardContext) {
+fn copy_words(word_list: &mut Vec<&str>, ctx: &mut ClipboardContext) {
     let random_word_length = gen_word_lenth(6, 12);
     
     // 截取指定长度的单词
@@ -41,7 +41,7 @@ fn copy_words(word_list: &mut Vec<&str>, ctx: ClipboardContext) {
 
 }
 
-fn prompt_continue(word_list: &mut Vec<&str>, ctx: ClipboardContext) {
+fn prompt_continue(word_list: &mut Vec<&str>, ctx: &mut ClipboardContext) {
     let selections = vec!["继续获取", "退出"];
     let selection = Select::new()
         .items(&selections)
@@ -83,5 +83,5 @@ async fn main() {
     let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
     
 
-    prompt_continue(&mut word_list, ctx);
+    prompt_continue(&mut word_list, &mut ctx);
 }
