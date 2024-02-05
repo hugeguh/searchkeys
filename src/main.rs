@@ -50,7 +50,7 @@ fn prompt_continue(word_list: &mut Vec<&str>, ctx: ClipboardContext) {
         .unwrap();
     if selection == 0 {
         copy_words(word_list, ctx);
-        prompt_continue(word_list);
+        prompt_continue(word_list, ctx);
     } else {
         std::process::exit(0);
     }
